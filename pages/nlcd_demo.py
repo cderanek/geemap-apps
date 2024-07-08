@@ -75,27 +75,27 @@ row1_col1, row1_col2 = st.columns([3, 1])
 m = geemap.Map()
 
 # Update map
-with row1_col1:
-    m.default_style = {"cursor": "crosshair"}
-    m.centerObject(site_2021_sdr)
+# with row1_col1:
+m.default_style = {"cursor": "crosshair"}
+m.centerObject(site_2021_sdr)
     
-    figure = plt.figure(
-        1,
-        title="Reflectance",
-        layout={"height": "200px", "width": "600px"},
-    )
+figure = plt.figure(
+    1,
+    title="Reflectance",
+    layout={"height": "200px", "width": "600px"},
+)
     
     
-    # Set up variables for plotting markers, reflectance
-    x = wavelengths.getInfo()
-    coordinates = []
-    markers = []
-    marker_cluster = MarkerCluster(name="Marker Cluster")
-    m.add_layer(marker_cluster)
+# Set up variables for plotting markers, reflectance
+x = wavelengths.getInfo()
+coordinates = []
+markers = []
+marker_cluster = MarkerCluster(name="Marker Cluster")
+m.add_layer(marker_cluster)
     
-    m.on_interaction(handle_interaction)
+m.on_interaction(handle_interaction)
     
-    fig_control = WidgetControl(widget=figure, position="bottomright")
-    m.add_control(fig_control)
+fig_control = WidgetControl(widget=figure, position="bottomright")
+m.add_control(fig_control)
 
-    m.to_streamlit(height=600)
+m.to_streamlit(height=600)
