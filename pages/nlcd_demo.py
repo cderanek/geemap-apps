@@ -88,7 +88,7 @@ def main():
 
     # Create a Folium map
     folium_map = create_folium_map()
-    st_folium(m, width=725, returned_objects=[])
+    st_folium(folium_map, width=725)
 
     # Click event handler for Folium map
     if folium_map.click_lat_lng:
