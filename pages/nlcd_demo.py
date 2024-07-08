@@ -1,6 +1,26 @@
 import ee
+import json
 import streamlit as st
 import geemap.foliumap as geemap
+from google.oauth2 import service_account
+from ee import oauth
+
+# Inistialize EE
+def ee_initialize(force_use_service_account=False):
+    if force_use_service_account or "json_data" in st.secrets:
+        json_credentials = st.secrets["json_data"]
+        credentials_dict = json.loads(json_credentials)
+        if 'client_email' not in credentials_dict:
+            raise ValueError("Service account info is missing 'client_email' field.")
+        credentials = service_account.Credentials.from_service_account_info(
+            credentials_dict, scopes=oauth.SCOPES
+        )
+        ee.Initialize(credentials)
+    else:
+        ee.Initialize()
+        
+# Initialize GEE
+ee_initialize(force_use_service_account=True)
 
 # Get an NLCD image by year.
 def getNLCD(year):
