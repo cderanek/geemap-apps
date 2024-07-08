@@ -71,10 +71,11 @@ st.header("National Ecological Observatory Network (NEON) Airborne Observation P
 # Create a layout containing two columns, one for the map and one for the layer dropdown list.
 row1_col1, row1_col2 = st.columns([3, 1])
 
+# Create an interactive map
+m = geemap.Map()
+
 # Update map
 with row1_col1:
-    # Create an interactive map
-    m = geemap.Map()
     m.default_style = {"cursor": "crosshair"}
     m.centerObject(site_2021_sdr)
     
