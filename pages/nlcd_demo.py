@@ -93,3 +93,6 @@ def main():
     if folium_map.click_lat_lng:
         handle_click(folium_map.click_lat_lng)
 
+if __name__ == '__main__':
+    main()
+
