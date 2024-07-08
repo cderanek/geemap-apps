@@ -7,6 +7,7 @@ from google.oauth2 import service_account
 from ee import oauth
 import folium
 import matplotlib.pyplot as plt
+from streamlit_folium import st_folium
 
 # Initialize EE helper fn
 def ee_initialize(force_use_service_account=False):
@@ -87,7 +88,7 @@ def main():
 
     # Create a Folium map
     folium_map = create_folium_map()
-    folium_static(folium_map)
+    st_folium(m, width=725, returned_objects=[])
 
     # Click event handler for Folium map
     if folium_map.click_lat_lng:
