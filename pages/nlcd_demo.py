@@ -1,7 +1,8 @@
 import ee
 import json
 import streamlit as st
-import geemap.foliumap as geemap
+import geemap
+import geemap.colormaps as cm
 from google.oauth2 import service_account
 from ee import oauth
 from ipyleaflet import *
