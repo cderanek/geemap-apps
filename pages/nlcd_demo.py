@@ -76,7 +76,7 @@ with row1_col1:
     coordinates = []
     markers = []
     marker_cluster = MarkerCluster(name="Marker Cluster")
-    m.add_layer(marker_cluster)
+    #m.add_layer(marker_cluster)
     
     # Helper function called each time we click a new point
     def handle_interaction(**kwargs):
